@@ -192,7 +192,103 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline-color:#B39
 #fire .fire-toolbar button+button{background:#efebf4;color:#554563}
 #fire .fire-note,#fire .fire-toolbar p{color:#756c7f}
 </style>
-<style>.team-switch{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}.team-switch button{padding:12px 18px;border-radius:12px;background:#eee9f4;color:#554566;border:1px solid #d8cde3;font-weight:600}.team-switch button[aria-pressed="true"]{background:#6b557f;color:white;border-color:#6b557f}</style><style>.dashboard-team-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}.dashboard-team-summary .daily-summary-panel{margin-bottom:0}.today-team{flex-basis:100%;margin-top:8px}.today-team h3{font-size:13px;font-weight:600;margin-bottom:8px}.today-team>div{display:flex;flex-wrap:wrap;gap:6px}@media(max-width:900px){.dashboard-team-summary{grid-template-columns:1fr}}</style><style>.book-day-summary{padding:22px;margin-top:20px}.book-day-summary h3{font-size:18px;font-weight:600}.book-day-summary p{font-size:12px;color:#746b7e;margin:8px 0}.book-day-summary table{width:100%;min-width:640px;font-size:13px;border-collapse:collapse}.book-day-summary th,.book-day-summary td{padding:10px 12px;border-bottom:1px solid #e9e3ef;text-align:left}.book-day-summary th{font-weight:500}.book-day-summary thead th{background:#f1edf6}.book-day-summary .book-day-over th,.book-day-summary .book-day-over td{background:#fff5e8}.book-day-flag{display:inline-block;margin-left:10px;font-size:11px;color:#875416}.book-day-notice{background:#f4f0f8;color:#59466b;padding:12px;border-radius:10px;margin:14px 0;font-size:13px}</style></head>
+<style>.team-switch{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}.team-switch button{padding:12px 18px;border-radius:12px;background:#eee9f4;color:#554566;border:1px solid #d8cde3;font-weight:600}.team-switch button[aria-pressed="true"]{background:#6b557f;color:white;border-color:#6b557f}</style><style>.dashboard-team-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}.dashboard-team-summary .daily-summary-panel{margin-bottom:0}.today-team{flex-basis:100%;margin-top:8px}.today-team h3{font-size:13px;font-weight:600;margin-bottom:8px}.today-team>div{display:flex;flex-wrap:wrap;gap:6px}@media(max-width:900px){.dashboard-team-summary{grid-template-columns:1fr}}</style><style>.book-day-summary{padding:22px;margin-top:20px}.book-day-summary h3{font-size:18px;font-weight:600}.book-day-summary p{font-size:12px;color:#746b7e;margin:8px 0}.book-day-summary table{width:100%;min-width:640px;font-size:13px;border-collapse:collapse}.book-day-summary th,.book-day-summary td{padding:10px 12px;border-bottom:1px solid #e9e3ef;text-align:left}.book-day-summary th{font-weight:500}.book-day-summary thead th{background:#f1edf6}.book-day-summary .book-day-over th,.book-day-summary .book-day-over td{background:#fff5e8}.book-day-flag{display:inline-block;margin-left:10px;font-size:11px;color:#875416}.book-day-notice{background:#f4f0f8;color:#59466b;padding:12px;border-radius:10px;margin:14px 0;font-size:13px}</style>
+<style id="mobile-ux-2026">
+/* ===== Mobile UX enhancement ===== */
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+button,input,select,textarea{font-size:16px}
+button,select,input[type="date"]{min-height:44px}
+body{overflow-x:hidden}
+
+@media (max-width: 768px){
+  body{padding-bottom:calc(82px + env(safe-area-inset-bottom))}
+  main{min-width:0!important;width:100%!important}
+  .card{border-radius:16px!important}
+  .table-wrap{-webkit-overflow-scrolling:touch;overflow-x:auto}
+
+  /* Header */
+  header{padding:10px 12px!important;gap:8px!important}
+  header h1,header h2{font-size:18px!important}
+  header .text-sm{font-size:12px!important}
+
+  /* Main content */
+  .view{padding:12px!important}
+  .max-w-3xl{max-width:100%!important}
+  form.card{padding:16px!important}
+  form.card h2{font-size:20px!important}
+  form.card textarea{min-height:84px}
+
+  /* Duty-change form: finger-friendly controls */
+  #swapForm label{font-size:14px!important}
+  #swapForm input,#swapForm select,#swapForm textarea{
+    width:100%!important;
+    min-height:48px!important;
+    border-radius:12px!important;
+    padding:12px!important;
+  }
+  #changeDutySubmit{
+    min-height:52px!important;
+    position:sticky;
+    bottom:calc(10px + env(safe-area-inset-bottom));
+    z-index:20;
+    box-shadow:0 8px 28px rgba(15,23,42,.18);
+  }
+
+  /* Sidebar becomes bottom navigation on mobile */
+  aside{
+    position:fixed!important;
+    left:0!important;right:0!important;bottom:0!important;top:auto!important;
+    width:100%!important;height:auto!important;min-height:0!important;
+    z-index:60!important;
+    padding:6px 8px calc(6px + env(safe-area-inset-bottom))!important;
+    border-right:0!important;border-top:1px solid rgba(148,163,184,.2)!important;
+  }
+  aside>div:first-child,aside>div:last-child,
+  aside .mt-auto{display:none!important}
+  #nav{
+    display:flex!important;
+    overflow-x:auto!important;
+    gap:5px!important;
+    padding:0!important;
+    scrollbar-width:none;
+  }
+  #nav::-webkit-scrollbar{display:none}
+  #nav .nav{
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-width:78px!important;
+    min-height:58px!important;
+    padding:7px 9px!important;
+    gap:3px!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+    text-align:center!important;
+    font-size:10px!important;
+    line-height:1.15!important;
+    border-radius:12px!important;
+  }
+  #nav .nav>span:first-child{font-size:18px!important}
+  #nav .nav>span.ml-auto{display:none!important}
+
+  /* SweetAlert fits small screens */
+  .swal2-popup{width:calc(100% - 24px)!important;padding:18px!important;border-radius:18px!important}
+  .swal2-title{font-size:21px!important}
+  .swal2-html-container{font-size:14px!important;margin:12px 4px!important}
+  .swal2-actions{width:100%!important;gap:8px!important}
+  .swal2-actions button{flex:1;min-height:46px;margin:0!important}
+
+  /* Compact dashboard cards/grids */
+  .grid{gap:10px!important}
+}
+
+@media (max-width: 420px){
+  .view{padding:9px!important}
+  form.card{padding:13px!important}
+  #nav .nav{min-width:72px!important;padding-left:7px!important;padding-right:7px!important}
+}
+</style>
+
+</head>
 <body>
 <section id="login" class="hidden min-h-screen grid lg:grid-cols-2 bg-white"><div class="hidden lg:flex p-16 text-white flex-col justify-between bg-gradient-to-br from-sky-800 via-sky-600 to-sky-300"><div class="font-bold text-2xl">● DMS</div><div><p class="text-sky-100 mb-4">Smart • Fair • Simple</p><h1 class="text-5xl font-bold leading-tight">ระบบจัดการเวร<br><span class="font-normal">Duty Management<br>System</span></h1><p class="mt-6 text-sky-50 max-w-md">จัดสรรหน้าที่อย่างยุติธรรม โปร่งใส และตรวจสอบได้</p></div><small>Copyright © Sunisa PT2</small></div><div class="flex items-center justify-center p-7"><form id="loginForm" class="w-full max-w-md"><div class="lg:hidden text-sky-600 text-xl font-bold mb-10">● ระบบจัดการเวร</div><span class="badge bg-sky-100 text-sky-700">ยินดีต้อนรับ</span><h2 class="text-3xl font-bold mt-4">เข้าสู่ระบบ</h2><p class="text-slate-500 mt-2 mb-8">กรอกข้อมูลบัญชีเพื่อดำเนินการต่อ</p><label class="text-sm font-medium">Username<input id="username" placeholder="ชื่อผู้ใช้ของคุณ" autocomplete="username" class="mt-2 mb-5 w-full rounded-xl border p-3 outline-none focus:ring-2 ring-sky-500"></label><label class="text-sm font-medium">Password<input id="password" type="password"  autocomplete="current-password" class="mt-2 mb-4 w-full rounded-xl border p-3 outline-none focus:ring-2 ring-sky-500"></label><label class="flex gap-2 text-sm text-slate-500 mb-7"><input id="remember" type="checkbox"> Remember me</label><button class="w-full rounded-xl bg-sky-600 hover:bg-sky-700 text-white p-3 font-semibold">เข้าสู่ระบบ</button><button type="button" onclick="closeLogin()" class="w-full py-3 text-slate-500">กลับ Dashboard</button><p class="text-center text-xs text-slate-400 mt-5">ใช้ชื่อผู้ใช้และรหัสผ่านที่ผู้ดูแลกำหนดให้</p></form></div></section>
 <section id="app"><aside id="sidebar" class="fixed z-40 inset-y-0 left-0 w-64 bg-white border-r p-5 transition-transform md:translate-x-0"><div class="flex items-center gap-3 px-2 py-4"><span class="w-10 h-10 rounded-xl bg-sky-600 text-white grid place-items-center font-bold">D</span><div><b>ระบบจัดการเวร</b><small class="block text-slate-400">Duty Management</small></div></div><nav class="mt-6 space-y-1" id="nav"></nav><div class="absolute bottom-5 inset-x-5"><div class="rounded-2xl bg-sky-900 text-white p-4"><small class="text-sky-200">ผู้ใช้งาน</small><b id="sideName" class="block mt-1"></b><span id="sideRole" class="text-xs text-sky-200"></span></div><button onclick="doLogout()" class="w-full mt-2 text-sm text-slate-500 py-2"><span id="sessionLabel">เข้าสู่ระบบ</span></button></div></aside>
@@ -219,10 +315,10 @@ function publicTeamButtons(){return '<div class="team-switch">'+['book','weekday
 function displayStaffName(value){const names={'สุนิสสา อุษณีเหมกุล':'สุนิสสา','อาทิตยา สุภาพ':'อาทิตยา','รวีวรรณ เวียนไผ่':'รวีวรรณ','จิราภรณ์ แสงสอาด':'จิราภรณ์','สุนิษา สุดแสวง':'สุนิษา'};return names[String(value)]||String(value??'')}
 function displayStaffText(value){let text=String(value??'');for(const name of ['สุนิสสา อุษณีเหมกุล','อาทิตยา สุภาพ','รวีวรรณ เวียนไผ่','จิราภรณ์ แสงสอาด','สุนิษา สุดแสวง'])text=text.split(name).join(displayStaffName(name));return text}
 
-const MENU=[['fire','◇','Code อัคคีภัย','แผนอัคคีภัยระดับหน่วยงาน · ทีม 14 คน'],['dashboard','▦','Dashboard','ภาพรวมระบบ'],['schedule','✓','เวรทีม Book 9 คน','ตารางขึ้นเวร · ทีมพิมพ์ Book'],['scheduleWeekday','✓','เวรทีม จ.–ศ. 5 คน','ตารางขึ้นเวร · ทีมวันจันทร์–ศุกร์'],['calendar','▣','ปฏิทิน','ตารางหน้าที่รายเดือน'],['personal','▦','ปฏิทินรายบุคคล','วันขึ้นเวร วันหยุด และหน้าที่ของแต่ละคน'],['statistics','▥','สถิติ','วิเคราะห์ภาระงาน'],['swap','⇄','แลกเวร','คำขอแลกเวร'],['notifications','♢','การแจ้งเตือน','ข้อความและการเปลี่ยนแปลง'],['audit','☷','ประวัติการแก้ไข','Audit Log'],['users','♙','จัดการผู้ใช้งาน','สร้างบัญชีและกำหนดรหัสผ่านให้ทีม']];let TOKEN='',DATA=null,chart=null,dirty={};
+const MENU=[['fire','◇','Code อัคคีภัย','แผนอัคคีภัยระดับหน่วยงาน · ทีม 14 คน'],['dashboard','▦','Dashboard','ภาพรวมระบบ'],['schedule','✓','เวรทีม Book 9 คน','ตารางขึ้นเวร · ทีมพิมพ์ Book'],['scheduleWeekday','✓','เวรทีม จ.–ศ. 5 คน','ตารางขึ้นเวร · ทีมวันจันทร์–ศุกร์'],['calendar','▣','ปฏิทิน','ตารางหน้าที่รายเดือน'],['personal','▦','ปฏิทินรายบุคคล','วันขึ้นเวร วันหยุด และหน้าที่ของแต่ละคน'],['statistics','▥','สถิติ','วิเคราะห์ภาระงาน'],['swap','⇄','เปลี่ยนเวร','จัดผู้ปฏิบัติหน้าที่แทนก่อนหยุด'],['notifications','♢','การแจ้งเตือน','ข้อความและการเปลี่ยนแปลง'],['audit','☷','ประวัติการแก้ไข','Audit Log'],['users','♙','จัดการผู้ใช้งาน','สร้างบัญชีและกำหนดรหัสผ่านให้ทีม']];let TOKEN='',DATA=null,chart=null,dirty={};
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // วาง URL Web App ที่ลงท้าย /exec ตรงนี้
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbyfpGEmlfLNwi5qBILWF93y4f6XrwXD5k62qV8RwZO_frKzQe98aR8kgaztCQqjohI/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycby38VgC8KkJcfHSx4kARc0il4RfPqtxOOURKpYdmGnjLXpTqLDafpkNGkCItEZyDcF2/exec';
 async function rpc(fn,...args){if(!GAS_URL)throw new Error('กรุณาใส่ URL จาก GAS ในตัวแปร GAS_URL ของไฟล์ HTML ก่อน');const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),180000);try{const response=await fetch(GAS_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action:fn,args}),redirect:'follow',signal:controller.signal});if(!response.ok)throw new Error('เชื่อมต่อไม่สำเร็จ HTTP '+response.status);const r=await response.json();if(!r.ok)throw new Error(r.error||'บันทึกไม่สำเร็จ');return r.data}finally{clearTimeout(timer)}}
 function loading(title='กำลังโหลดข้อมูล'){Swal.fire({title,allowOutsideClick:false,didOpen:()=>Swal.showLoading()})}
 function err(e){if(/Session/.test(e.message||'')){TOKEN='';DATA=null;publicStart()}Swal.fire({icon:'error',title:'เกิดข้อผิดพลาด',text:e.message||String(e)})}
@@ -279,14 +375,49 @@ function scheduleDailyFooter(){return [['✓','ขึ้นเวร'],['X','ห
 function refreshDailySummary(){const d=$('#summaryDay').value;const counts={'✓':0,'X':0,'V':0};scheduleRoster().forEach(n=>{const s=scheduleStatus(n,+d);if(s in counts)counts[s]++});$('#selectedDayCounts').innerHTML=dailyCards(counts,SCHEDULE_TEAM);$('#dailyDraftNotice').textContent=Object.keys(dirty).length?'มีการแก้ไขที่ยังไม่บันทึก • ยอดนี้รวมการแก้ไขบนหน้าจอแล้ว':'ยอดจากตารางขึ้นเวร • วันที่ไม่กำหนดสถานะถือว่าขึ้นเวร';for(let day=1;day<=daysInMonth();day++)for(const s of ['✓','X','V'])document.getElementById('daily-total-'+s+'-'+day).textContent=scheduleRoster().filter(n=>scheduleStatus(n,day)===s).length}
 
 function renderSchedule(){const admin=DATA.user.role==='Admin',days=daysInMonth(),selected=$('#month').value===today().slice(0,7)?Number(today().slice(-2)):1;$('#schedule').innerHTML=`<div class="card p-5"><div class="flex justify-between items-center mb-4"><div><h2 class="font-bold text-lg">${teamTitle(SCHEDULE_TEAM)}</h2><p class="text-xs text-slate-400">${admin?'ผู้ดูแลแก้ไขตารางได้ทุกคน':'คุณแก้ไขได้เฉพาะแถว '+esc(displayStaffName(DATA.user.employee))} · ✓ ขึ้นเวร / X หยุด / V พักร้อน</p></div><button onclick="saveGrid()" class="bg-sky-600 text-white rounded-xl px-5 py-3 font-semibold">${admin?'บันทึกตาราง':'บันทึกเวรของฉัน'}</button></div><div class="daily-summary-panel"><div class="daily-summary-heading"><h3>สรุปจำนวนบุคลากรรายวัน</h3><label>วันที่ <select id="summaryDay" onchange="refreshDailySummary()" aria-label="เลือกวันสำหรับสรุปจำนวน">${Array.from({length:days},(_,i)=>`<option value="${i+1}" ${i+1===selected?'selected':''}>${fmt($('#month').value+'-'+String(i+1).padStart(2,'0'))}</option>`).join('')}</select></label></div><div id="selectedDayCounts" aria-live="polite"></div><p id="dailyDraftNotice" class="daily-count-note"></p></div><div class="table-wrap"><table class="text-xs whitespace-nowrap border-collapse"><thead><tr><th class="p-3 sticky left-0 z-10">พนักงาน</th>${Array.from({length:days},(_,i)=>`<th class="p-3">${i+1}</th>`).join('')}</tr></thead><tbody>${scheduleRoster().map(n=>`<tr class="person-row" style="${staffStyle(n)}"><th class="p-3 sticky left-0 bg-white border">${person(n)}</th>${Array.from({length:days},(_,i)=>{const st=scheduleStatus(n,i+1),cl=st==='✓'?'s-on':st==='V'?'s-vac':'s-off';return `<td class="border p-1"><button ${admin||n===DATA.user.employee?'':'disabled aria-label="ดูอย่างเดียว"'} onclick="cycle(this,'${n}',${i+1})" class="status ${cl} w-9 h-9 rounded-lg font-bold">${st}</button></td>`}).join('')}</tr>`).join('')}</tbody><tfoot>${scheduleDailyFooter()}</tfoot></table></div><div class="flex gap-4 mt-4 text-xs"><span class="badge s-on">✓ ขึ้นเวร (ค่าเริ่มต้น)</span><span class="badge s-off">X วันหยุด</span><span class="badge s-vac">V พักร้อน</span></div></div>`;refreshDailySummary()}
-function cycle(el,n,d){if(!DATA||(DATA.user.role!=='Admin'&&n!==DATA.user.employee)){err(new Error('คุณแก้ไขได้เฉพาะตารางขึ้นเวรของตัวเอง'));return}const seq=['✓','X','V'],next=seq[(seq.indexOf(el.textContent)+1)%3],date=$('#month').value+'-'+String(d).padStart(2,'0');el.textContent=next;el.className='status '+(next==='✓'?'s-on':next==='V'?'s-vac':'s-off')+' w-9 h-9 rounded-lg font-bold';dirty[date+'|'+n]=next;refreshDailySummary();const absent=teamRoster(DATA.employees,'book').filter(person=>['X','V'].includes(scheduleStatus(person,d))).length;if(absent>4)Swal.fire({toast:true,position:'top-end',icon:'warning',title:fmt(date)+' ทีมพิมพ์ Book หยุดรวมพักร้อน '+absent+' คน',text:'เกินเกณฑ์ 4 คน บันทึกได้และจะแจ้งทั้งทีมหลังบันทึก',timer:5500,showConfirmButton:false})}
+function cycle(el,n,d){if(!DATA||(DATA.user.role!=='Admin'&&n!==DATA.user.employee)){err(new Error('คุณแก้ไขได้เฉพาะตารางขึ้นเวรของตัวเอง'));return}const seq=['✓','X','V'],next=seq[(seq.indexOf(el.textContent)+1)%3],date=$('#month').value+'-'+String(d).padStart(2,'0');if(next==='X'&&n===DATA.user.employee){const a=DATA.assignments.find(x=>String(x.Date)===date),duties=a?[['Phone3551','3551'],['Phone3552','3552'],['Doc','Doc']].filter(([k])=>a[k]===n).map(x=>x[1]):[];if(duties.length){Swal.fire({icon:'warning',title:'มีหน้าที่ก่อนหยุด',html:'วันที่ <b>'+fmt(date)+'</b> คุณมีหน้าที่ <b>'+duties.join(', ')+'</b><br>กรุณาตกลงผู้ปฏิบัติหน้าที่แทนก่อน แล้วทำรายการที่เมนูเปลี่ยนเวร',showCancelButton:true,confirmButtonText:'ไปหน้าเปลี่ยนเวร',cancelButtonText:'ยกเลิก'}).then(r=>{if(r.isConfirmed){CHANGE_DATE_PREFILL=date;showView('swap');renderSwap()}});return}}el.textContent=next;el.className='status '+(next==='✓'?'s-on':next==='V'?'s-vac':'s-off')+' w-9 h-9 rounded-lg font-bold';dirty[date+'|'+n]=next;refreshDailySummary();const absent=teamRoster(DATA.employees,'book').filter(person=>['X','V'].includes(scheduleStatus(person,d))).length;if(absent>4)Swal.fire({toast:true,position:'top-end',icon:'warning',title:fmt(date)+' ทีมพิมพ์ Book หยุดรวมพักร้อน '+absent+' คน',text:'เกินเกณฑ์ 4 คน บันทึกได้และจะแจ้งทั้งทีมหลังบันทึก',timer:5500,showConfirmButton:false})}
 async function saveGrid(){const items=Object.entries(dirty).map(([k,status])=>{const p=k.lastIndexOf('|');return {date:k.slice(0,p),employee:k.slice(p+1),status}});if(!items.length)return Swal.fire('ไม่มีการเปลี่ยนแปลง');loading('กำลังบันทึก');try{const saved=await rpc('saveSchedule',TOKEN,items);dirty={};await reload();Swal.fire({icon:saved?.warnings?.length?'warning':'success',title:'บันทึกสำเร็จ',text:saved?.warnings?.length?saved.warnings.map(w=>fmt(w.date)+' หยุดรวมพักร้อน '+w.total+' คน').join(' • ')+' — ส่งแจ้งเตือนไปทุกบัญชีที่เปิดใช้งานแล้ว':''})}catch(e){err(e)}}
 function renderCalendar(){const a=DATA.assignments,days=daysInMonth(),[y,m]=$('#month').value.split('-').map(Number),first=(new Date(y,m-1,1).getDay()+6)%7;let cells=['จ','อ','พ','พฤ','ศ','ส','อา'].map(x=>`<div class="min-h-0 bg-sky-50 font-semibold text-center">${x}</div>`);for(let i=0;i<first;i++)cells.push('<div></div>');for(let d=1;d<=days;d++){const date=$('#month').value+'-'+String(d).padStart(2,'0'),x=a.find(z=>String(z.Date)===date);cells.push(`<div class="${date===today()?'bg-sky-50 ring-2 ring-inset ring-sky-500':''}"><b>${d}</b>${x?`${person(x.Phone3551,'3551 · ')}${person(x.Phone3552,'3552 · ')}${person(x.Doc,'Doc · ')}`:''}</div>`)}$('#calendar').innerHTML=`<div class="card p-5"><h2 class="font-bold text-lg mb-4">ปฏิทินรายเดือน</h2><div class="table-wrap"><div class="cal border-l border-t">${cells.join('')}</div></div></div><div class="card p-5 mt-5"><h3 class="font-bold">สรุปทั้งเดือน</h3><div class="table-wrap mt-3"><table class="w-full text-sm"><thead><tr><th class="p-3 text-left">วันที่</th><th>3551</th><th>3552</th><th>Doc</th>${DATA.user.role==='Admin'?'<th>จัดการ</th>':''}</tr></thead><tbody>${a.map(x=>`<tr class="border-b hover:bg-sky-50"><td class="p-3">${fmt(x.Date)}</td><td>${person(x.Phone3551)}</td><td>${person(x.Phone3552)}</td><td>${person(x.Doc)}</td>${DATA.user.role==='Admin'?`<td><button onclick="editAssignment('${x.Date}')" class="text-sky-700">แก้ไข</button></td>`:''}</tr>`).join('')}</tbody></table></div></div>`}
 async function editAssignment(date){const a=DATA.assignments.find(x=>String(x.Date)===date),available=DATA.employees.filter(n=>!DATA.schedule.some(x=>x.Date===date&&x.Employee===n&&x.Status!=='✓'));if(!a||available.length<3)return err(new Error('ต้องมีผู้ขึ้นเวรอย่างน้อย 3 คน'));const opts=(selected)=>available.map(n=>`<option ${n===selected?'selected':''}>${n}</option>`).join('');const r=await Swal.fire({title:'แก้ไขหน้าที่ '+fmt(date),html:`<label class="block text-left text-sm">3551<select id="e1" class="w-full border rounded-lg p-2 mt-1">${opts(a.Phone3551)}</select></label><label class="block text-left text-sm mt-3">3552<select id="e2" class="w-full border rounded-lg p-2 mt-1">${opts(a.Phone3552)}</select></label><label class="block text-left text-sm mt-3">Doc<select id="ed" class="w-full border rounded-lg p-2 mt-1">${opts(a.Doc)}</select></label>`,showCancelButton:true,confirmButtonColor:'#5185db',preConfirm:()=>({Date:date,Phone3551:$('#e1').value,Phone3552:$('#e2').value,Doc:$('#ed').value})});if(!r.isConfirmed)return;loading('กำลังตรวจสอบและบันทึก');try{await rpc('saveAssignment',TOKEN,r.value);await reload();Swal.fire({icon:'success',title:'แก้ไขสำเร็จ'})}catch(e){err(e)}}
 function renderStats(){$('#statistics').innerHTML=`<div class="card p-5"><h2 class="font-bold text-lg">สถิติภาระงาน</h2><div class="h-80 mt-5"><canvas id="chart"></canvas></div></div><div class="card p-5 mt-5">${workTable(DATA.workload)}</div>`;setTimeout(()=>{if(chart)chart.destroy();chart=new Chart($('#chart'),{type:'bar',data:{labels:DATA.workload.map(x=>x.name),datasets:[{label:'3551',data:DATA.workload.map(x=>x.p1),backgroundColor:DATA.workload.map(x=>staffColor(x.name)[2]),borderRadius:5},{label:'3552',data:DATA.workload.map(x=>x.p2),backgroundColor:DATA.workload.map(x=>staffColor(x.name)[2]+'AA'),borderRadius:5},{label:'Doc',data:DATA.workload.map(x=>x.doc),backgroundColor:DATA.workload.map(x=>staffColor(x.name)[0]),borderColor:DATA.workload.map(x=>staffColor(x.name)[2]),borderWidth:1,borderRadius:5}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}})},0)}
-function renderSwap(){const options=DATA.employees.filter(x=>x!==DATA.user.employee).map(x=>`<option value="${esc(x)}">${esc(displayStaffName(x))}</option>`).join('');$('#swap').innerHTML=`<div class="grid lg:grid-cols-5 gap-5"><form id="swapForm" class="card p-5 lg:col-span-2"><h2 class="font-bold text-lg">ส่งคำขอแลกเวร</h2>${DATA.user.role==='Admin'?field('ผู้ขอแลกเวร','<select id="requester">'+DATA.employees.map(n=>'<option value="'+esc(n)+'">'+esc(displayStaffName(n))+'</option>').join('')+'</select>'):''}${field('ประเภทเวร','<select id="dutyType"><option>3551</option><option>3552</option><option>Doc</option></select>')}${field('วันที่ของฉัน','<input id="myDate" type="date">')}${field('พนักงานที่ต้องการแลก','<select id="targetEmployee">'+options+'</select>')}${field('วันที่ของอีกฝ่าย','<input id="targetDate" type="date">')}${field('เหตุผล','<textarea id="reason" rows="3"></textarea>')}<button class="w-full bg-sky-600 text-white rounded-xl py-3 mt-5 font-semibold">ส่งคำขอแลกเวร</button></form><div class="card p-5 lg:col-span-3"><h2 class="font-bold text-lg mb-4">สถานะคำขอ</h2><div class="space-y-3">${DATA.swaps.length?DATA.swaps.slice().reverse().map(s=>swapCard(s)).join(''):'<p class="text-slate-400">ยังไม่มีคำขอ</p>'}</div></div></div>`;$('#swapForm').onsubmit=submitSwap}
-function field(l,h){return `<label class="block text-sm mt-4">${l}<span class="block mt-2 [&>*]:w-full [&>*]:border [&>*]:rounded-xl [&>*]:p-3">${h}</span></label>`} function swapCard(s){const colors={Pending:'bg-amber-100 text-amber-700',Accepted:'bg-blue-100 text-blue-700',Rejected:'bg-red-100 text-red-700',Approved:'bg-sky-100 text-sky-700'};let btn='';if(s.Status==='Pending'&&s.TargetEmployee===DATA.user.employee)btn=`<button onclick="swapStatus('${s.Id}','Accepted')" class="text-sky-700">ตอบรับ</button> <button onclick="swapStatus('${s.Id}','Rejected')" class="text-red-600">ปฏิเสธ</button>`;if(['Pending','Accepted'].includes(s.Status)&&DATA.user.role==='Admin')btn=`<button onclick="swapStatus('${s.Id}','Approved')" class="text-sky-700">อนุมัติ</button> <button onclick="swapStatus('${s.Id}','Rejected')" class="text-red-600">ปฏิเสธ</button>`;return `<div class="border rounded-xl p-4"><div class="flex justify-between"><b>${s.DutyType} · ${person(s.Requester)} <span class="swap-arrow">⇄</span> ${person(s.TargetEmployee)}</b><span class="badge ${colors[s.Status]}">${s.Status}</span></div><small class="text-slate-500">${fmt(s.MyDate)} ⇄ ${fmt(s.TargetDate)} · ${esc(s.Reason)}</small><div class="mt-2 text-sm space-x-3">${btn}</div></div>`}
-async function submitSwap(e){e.preventDefault();const data={requester:$('#requester')?.value,dutyType:$('#dutyType').value,myDate:$('#myDate').value,targetEmployee:$('#targetEmployee').value,targetDate:$('#targetDate').value,reason:$('#reason').value};const q=await Swal.fire({icon:'question',title:'ยืนยันส่งคำขอแลกเวร?',showCancelButton:true,confirmButtonColor:'#5185db'});if(!q.isConfirmed)return;loading('กำลังบันทึก');try{await rpc('createSwapRequest',TOKEN,data);await reload();Swal.fire({icon:'success',title:'ส่งคำขอสำเร็จ'})}catch(e){err(e)}} async function swapStatus(id,s){loading('กำลังอัปเดต');try{await rpc('updateSwapStatus',TOKEN,id,s);await reload();Swal.fire({icon:'success',title:'อัปเดตสถานะแล้ว'})}catch(e){err(e)}}
+let CHANGE_DATE_PREFILL='';
+function dutyChangeInfo(date){
+ const owner=DATA.user.employee,a=DATA.assignments.find(x=>String(x.Date)===date),roles=[];
+ if(a){if(a.Phone3551===owner)roles.push('3551');if(a.Phone3552===owner)roles.push('3552');if(a.Doc===owner)roles.push('Doc')}
+ const occupied=a?[a.Phone3551,a.Phone3552,a.Doc].filter(Boolean):[];
+ // ผู้ทำหน้าที่แทนเลือกได้เฉพาะทีมพิมพ์ Book 9 คนที่ขึ้นเวร ✓ ในวันนั้น
+ // ไม่ตัดคนที่มีหน้าที่อยู่แล้วออก เพื่อให้เลือกซ้ำได้เมื่อเจ้าตัวยินยอม
+ const candidates=DATA.employees.filter(n=>BOOK_NAMES.includes(n)&&n!==owner&&((DATA.schedule.find(x=>String(x.Date)===date&&x.Employee===n)?.Status)||'✓')==='✓');
+ return {a,roles,candidates,occupied};
+}
+function renderSwap(){
+ const current=today().slice(0,7),selectedMonth=$('#month').value;
+ if(selectedMonth!==current){$('#swap').innerHTML='<div class="card p-6"><h2 class="font-bold text-lg">🔄 เปลี่ยนเวร</h2><p class="text-slate-500 mt-2">ระบบเปลี่ยนเวรใช้กับเดือนปัจจุบันเท่านั้น กรุณาเลือกเดือนปัจจุบันจากด้านบนก่อนทำรายการ</p></div>';return}
+ if(DATA.user.role==='Admin'&&!DATA.employees.includes(DATA.user.employee)){$('#swap').innerHTML='<div class="card p-6"><h2 class="font-bold text-lg">🔄 เปลี่ยนเวร</h2><p class="text-slate-500 mt-2">รายการนี้สำหรับเจ้าของเวรดำเนินการด้วยบัญชีของตนเอง เพื่อให้ Audit Log ระบุผู้ทำรายการถูกต้อง</p></div>';return}
+ const date=CHANGE_DATE_PREFILL||today(),min=current+'-01',max=current+'-'+String(new Date(+current.slice(0,4),+current.slice(5),0).getDate()).padStart(2,'0');
+ $('#swap').innerHTML='<div class="max-w-3xl mx-auto"><form id="swapForm" class="card p-6"><div class="flex items-start justify-between gap-4"><div><div class="text-xs font-bold tracking-wider text-sky-600">DIRECT DUTY CHANGE</div><h2 class="font-bold text-xl mt-1">🔄 เปลี่ยนเวร</h2><p class="text-sm text-slate-500 mt-2">ตกลงผู้ปฏิบัติหน้าที่แทนให้เรียบร้อยก่อนยืนยัน ระบบจะโอนหน้าที่และเปลี่ยนคุณเป็น X พร้อมกัน</p></div></div>'+field('วันที่ต้องการหยุด','<input id="changeDate" type="date" min="'+min+'" max="'+max+'" value="'+esc(date)+'" onchange="renderDutyChangeFields()">')+'<div id="changeDutyFields" class="mt-4"></div>'+field('หมายเหตุ','<textarea id="changeReason" rows="3" placeholder="เช่น ลากิจ / ธุระส่วนตัว (ไม่บังคับ)"></textarea>')+'<button id="changeDutySubmit" class="w-full bg-sky-600 text-white rounded-xl py-3 mt-5 font-semibold">ยืนยันเปลี่ยนเวร</button><p class="text-xs text-slate-400 mt-3 text-center">ไม่ต้องรออนุมัติ • ระบบบันทึก Audit Log และแจ้ง LINE หลังทำรายการสำเร็จ</p></form></div>';
+ $('#swapForm').onsubmit=submitSwap;renderDutyChangeFields();CHANGE_DATE_PREFILL='';
+}
+function renderDutyChangeFields(){
+ const date=$('#changeDate')?.value,box=$('#changeDutyFields');if(!date||!box)return;
+ const info=dutyChangeInfo(date),ownerStatus=DATA.schedule.find(x=>String(x.Date)===date&&x.Employee===DATA.user.employee)?.Status||'✓';
+ if(ownerStatus!=='✓'){box.innerHTML='<div class="rounded-xl bg-amber-50 border border-amber-200 p-4 text-amber-800">วันที่นี้สถานะของคุณไม่ใช่ ✓ ขึ้นเวร จึงไม่สามารถทำรายการเปลี่ยนเวรได้</div>';$('#changeDutySubmit').disabled=true;$('#changeDutySubmit').classList.add('opacity-50');return}
+ $('#changeDutySubmit').disabled=false;$('#changeDutySubmit').classList.remove('opacity-50');
+ if(!info.roles.length){box.innerHTML='<div class="rounded-xl bg-emerald-50 border border-emerald-200 p-4"><b class="text-emerald-700">✓ วันนี้ไม่มีหน้าที่ 3551 / 3552 / Doc</b><p class="text-sm text-slate-500 mt-1">ยืนยันแล้วระบบจะเปลี่ยนสถานะของคุณจาก ✓ เป็น X ได้ทันที</p></div>';return}
+ const opts='<option value="">— เลือกผู้ปฏิบัติหน้าที่แทน —</option>'+info.candidates.map(n=>{const dup=info.occupied.includes(n);return '<option value="'+esc(n)+'">'+esc(displayStaffName(n))+(dup?' • มีหน้าที่อยู่แล้ว':'')+'</option>'}).join('');
+ box.innerHTML='<div class="rounded-xl bg-amber-50 border border-amber-200 p-4 mb-4"><b>หน้าที่ที่ต้องจัดคนแทนก่อนหยุด</b><p class="text-sm text-slate-500 mt-1">แสดงเฉพาะทีมพิมพ์ Book 9 คนที่ขึ้นเวร ✓ ในวันนั้น • 1 คนรับหลายหน้าที่ได้ • แม้มีหน้าที่วันเดียวกัน งานติดกัน หรือมีงานในสัปดาห์นั้นแล้ว ก็สามารถเลือกและบันทึกได้เมื่อเจ้าตัวยินยอม</p></div>'+info.roles.map(role=>field((role==='Doc'?'📄 ':'☎️ ')+role,'<select class="replacement-select" data-duty="'+role+'">'+opts+'</select>')).join('');
+}
+function field(l,h){return `<label class="block text-sm mt-4">${l}<span class="block mt-2 [&>*]:w-full [&>*]:border [&>*]:rounded-xl [&>*]:p-3">${h}</span></label>`}
+async function submitSwap(e){
+ e.preventDefault();const date=$('#changeDate').value,info=dutyChangeInfo(date),replacements={};document.querySelectorAll('.replacement-select').forEach(el=>replacements[el.dataset.duty]=el.value);
+ for(const role of info.roles)if(!replacements[role])return Swal.fire({icon:'warning',title:'กรุณาเลือกคนแทนให้ครบ',text:'ยังไม่ได้เลือกผู้ปฏิบัติหน้าที่แทน '+role});
+ const summary=info.roles.length?info.roles.map(r=>r+' → '+displayStaffName(replacements[r])).join('<br>'):'วันนี้ไม่มีหน้าที่ที่ต้องโอน';
+ const selected=Object.values(replacements).filter(Boolean);
+ const duplicateNames=[...new Set(selected.filter((n,i)=>selected.indexOf(n)!==i||info.occupied.includes(n)))];
+ const warning=duplicateNames.length?'<div style="margin-top:14px;padding:12px;border-radius:12px;background:#fff7ed;color:#9a3412"><b>⚠️ พบผู้ปฏิบัติหน้าที่ซ้ำ</b><br>'+duplicateNames.map(n=>displayStaffName(n)+' มีหน้าที่อยู่แล้วหรือถูกเลือกมากกว่า 1 หน้าที่').join('<br>')+'<br><br>สามารถบันทึกได้ แม้มีหลายหน้าที่ งานติดกัน หรือมีงานในสัปดาห์นั้นแล้ว หากได้ตกลงและผู้ปฏิบัติหน้าที่ยินยอมแล้ว</div>':'';
+ const q=await Swal.fire({icon:duplicateNames.length?'warning':'question',title:'ยืนยันเปลี่ยนเวร?',html:'<b>'+fmt(date)+'</b><br>'+summary+warning+'<br><br>สถานะของคุณจะเปลี่ยนจาก ✓ เป็น X ทันที',showCancelButton:true,confirmButtonText:duplicateNames.length?'ยืนยันว่าตกลงแล้วและบันทึก':'ยืนยันเปลี่ยนเวร',cancelButtonText:'ยกเลิก',confirmButtonColor:'#0284c7'});if(!q.isConfirmed)return;
+ loading('กำลังเปลี่ยนเวร');try{await rpc('changeDuty',TOKEN,{date,replacements,reason:$('#changeReason').value});dirty={};await reload();showView('swap');Swal.fire({icon:'success',title:'เปลี่ยนเวรเรียบร้อย',text:'โอนหน้าที่และเปลี่ยนสถานะเป็น X แล้ว'})}catch(e){err(e)}
+}
 function renderNotes(){const unread=DATA.notifications.filter(x=>String(x.Read)!=='true').length;$('#noteCount').textContent=unread||'';$('#notifications').innerHTML=`<div class="card p-5"><div class="flex justify-between"><h2 class="font-bold text-lg">การแจ้งเตือน</h2><button onclick="markRead()" class="text-sky-700 text-sm">อ่านทั้งหมดแล้ว</button></div><div class="mt-4 space-y-2">${DATA.notifications.length?DATA.notifications.map(n=>`<div class="p-4 rounded-xl ${String(n.Read)==='true'?'bg-slate-50':'bg-sky-50 border border-sky-100'}"><b class="text-sm">${esc(displayStaffText(n.Message))}</b><small class="block text-slate-400">${new Date(n.CreatedAt).toLocaleString('th-TH')}</small></div>`).join(''):'<p class="text-slate-400">ไม่มีการแจ้งเตือน</p>'}</div></div>`} async function markRead(){await rpc('markNotificationsRead',TOKEN);await reload()}
 function renderAudit(){if(DATA.user.role!=='Admin')return;$('#audit').innerHTML=`<div class="card p-5"><h2 class="font-bold text-lg">ประวัติการแก้ไข</h2><div class="table-wrap mt-4"><table class="w-full text-xs whitespace-nowrap"><thead><tr>${['วันเวลา','ผู้ใช้งาน','Action','รายละเอียด','ค่าเดิม','ค่าใหม่'].map(x=>`<th class="p-3 text-left">${x}</th>`).join('')}</tr></thead><tbody>${DATA.audit.map(x=>`<tr class="border-b hover:bg-sky-50"><td class="p-3">${new Date(x.Timestamp).toLocaleString('th-TH')}</td><td>${esc(x.Username)}</td><td><span class="badge bg-slate-100">${esc(x.Action)}</span></td><td>${esc(x.Details)}</td><td class="max-w-40 truncate">${esc(x.OldValue)}</td><td class="max-w-40 truncate">${esc(x.NewValue)}</td></tr>`).join('')}</tbody></table></div></div>`}
 async function generateDay(){const date=today(),q=await Swal.fire({title:'จัดเวรวันนี้?',text:fmt(date),icon:'question',showCancelButton:true,confirmButtonColor:'#5185db'});if(!q.isConfirmed)return;loading('กำลังคำนวณ Fair Rotation');try{await verifyDutyRules();await rpc('generateToday',TOKEN,date);await reload();Swal.fire({icon:'success',title:'จัดเวรสำเร็จ'})}catch(e){err(e)}} async function generateAll(){const q=await Swal.fire({title:'จัดเวรทั้งเดือน?',text:'เฉลี่ยรับสายรวม 3551+3552 และ Doc ทั้งเดือน ไม่ทำหน้าที่เดิมติดกัน และ Doc ไม่เกิน 1 ครั้งต่อคนต่อสัปดาห์ (จันทร์–อาทิตย์) หากจัดไม่ได้จะคงตารางเดิม',icon:'question',showCancelButton:true,confirmButtonColor:'#5185db'});if(!q.isConfirmed)return;loading('กำลังจัดเวรทั้งเดือน');try{await verifyDutyRules();const r=await rpc('generateMonth',TOKEN,$('#month').value);await reload();Swal.fire({icon:r.errors.length?'warning':'success',title:'จัดเวรสำเร็จ '+r.assignments.length+' วัน',html:r.errors.length?'<small>'+r.errors.map(esc).join('<br>')+'</small>':''})}catch(e){err(e)}}
